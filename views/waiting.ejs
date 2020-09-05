@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+<div class="container mt-2 bg-light rounded">
+	<div class="text-center mt-5">
+		<h3> Waiting for players <i class="fa fa-refresh fa-spin"></i> </h3>
+	</div>
+	<div class="row" style="height:380px;">
+		<div class="col-md-6" style="overflow-y:scroll;height:380px;">
+			<table class="table">
+			  <thead>
+				<tr>
+				  <th scope="col">Player name</th>
+				  <th scope="col">User type</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<%roomdata.users.forEach(function(userdata){%>
+				<tr>
+				  <th scope="row"><%= userdata.name %></th>
+				  <th scope="row"><%= userdata.type %></th>
+				</tr>
+				  <% }); %>
+			  </tbody>
+			</table>
+		</div>
+		<div class="col-md-6 border border-dark pt-2" style="overflow-y:scroll;height:380px;">
+			<div class="d-inline">
+				<button type="button" class="btn btn-secondary"> Players <span class="badge badge-light"># <%= playersnumber %></span></button>
+				<button type="button" class="btn btn-secondary"> Room <span class="badge badge-light"># <%= roomdata.number %></span></button>
+			</div>
+		<h4 class="font-weight-bold">How to play the game</h4>
+		<p class="border border-dark rounded bg-white text-dark text-justify px-2">Fill a space with a word that starts by a specified letter related to a certain category. When you complete the spaces, submit it and say "Holdhand" and start counting to 5 seconds. When the five seconds reaches everyone should have submit its answer,if not player goes to a trial if his answer will be considered or not.</p>
+		<h4 class="font-weight-bold">How does the score system work</h4>
+		<p class="border border-dark rounded bg-white text-dark text-justify px-2">Each correct word has a value of 10 points, if the word is repeated once by another player the value is 5 points; if the word is repeated more than two times the value is 3 points. 
+Bonus points : There are two bonus in the game, each one has a value of 5 points. The first is given if you rank is the first position and each of your answers in the round are correct. However, if is not true it is given to the next rank and so on. The other bonus is given if your answers are corrected and not repeated by another player. </p>
+		<h4 class="font-weight-bold">Indications</h4>
+		<ul class="border border-dark rounded bg-white text-dark">
+			<li>Wait for admin instructions in the game</li>
+			<li>The admin is in charge of generating a new letter and reviewing the answers from all players</li>
+			<li>Players can't join to the game once the players proceed to the room</li>
+			<li>Play as many rounds you want</li>
+			<li>When admin click on ready you will continue to the room</li>
+		</ul>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center my-3 pt-3">
+		<%if(index == 0){%>
+		<%if(user.type == "Admin"){%>
+		  <form action="/ready/<%= ids.roomid %>/<%= ids.userid %>" method="POST">
+			 <button class="btn btn-outline-dark">Ready</button>
+		  </form>
+		<%}%>
+		<a class="btn btn-outline-dark" href="/waiting/<%= ids.roomid %>/<%= ids.userid %>">Refresh</a>
+		<%}else{%>
+		<a class="btn btn-outline-dark" href="/room/<%= ids.roomid %>/<%= ids.userid %>">Go to room</a>
+		<%}%>
+	</div>
+</div>
+<%- include("partials/footer") %>

@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+<div class="container mt-5 bg-light rounded">
+	<div class="text-center mt-5">
+		<h3>Position</h3>
+	</div>
+	<div class="d-flex justify-content-center my-3">
+		<div style="overflow-y:scroll;height:300px;">
+			<table class="table">
+			  <thead>
+				<tr>
+				  <th scope="col">Player name</th>
+				  <th scope="col">Score</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<%result.forEach(function(userdata){%>
+				  <tr>
+				 <th scope="row"><%= userdata.name %></th>
+				 <th scope="row"><%= userdata.totalscore %></th>
+				<%});%>  
+				</tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center my-3">
+		<a class="btn btn-outline-dark" href="/room/<%= ids.roomid %>/<%= ids.userid %>">Go home</a>
+	</div>
+</div>
+<%- include("partials/footer") %>

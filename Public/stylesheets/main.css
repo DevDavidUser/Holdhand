@@ -1,0 +1,26 @@
+#letter{
+	color: white;
+}
+#Title{
+	letter-spacing:40px;
+}
+#Hand{
+	position:relative;
+	right:20px;
+	color: 	#1E90FF;
+}
+.follow{
+	color:#1E90FF;
+}
+.fa-thumbs-up{
+ height: 40px;
+}
+#signature{
+	 font-family: "Allura";
+    font-size: 36px;
+    color: #1E90FF;
+}
+#signature:hover {
+  color:black;
+	cursor:default;
+}

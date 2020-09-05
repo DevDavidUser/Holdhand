@@ -1,0 +1,165 @@
+<%- include("partials/header") %>
+
+<div class="container mt-4 bg-light">
+	<div class="mt-4">
+		     	<%if(roomdata.roundnumber == 1){ %>
+				<div class="card text-white bg-warning mb-3" style="max-width: 32rem;">
+				  <div class="card-header">Admin indications</div>
+				  <div class="card-body">
+					<ul class="card-text">
+						<li>Once click on submit, it can't be edited</li>
+						<li>Once click on submit, notified players to refresh the page. </li>
+					</ul>
+				  </div>
+				</div>
+				<%}%>
+				<div class="d-inline">
+					<h3 class="text-center"> Review </h3>
+					<button type="button" class="btn btn-secondary my-2"> Round <span class="badge badge-light"># <%= roomdata.roundnumber %></span></button>
+				</div>
+	</div>
+	<div>	
+	<form action="/room/<%=ids.roomid %>/<%=ids.userid %>/review" method="POST">
+		<table class="table table-striped">
+		  <thead>
+			<div class="form-row">
+				<tr>
+				  <div class="col-md-1">
+				  	<th scope="col"><label for="name">Name</label></th>
+				  </div>	
+				  <div class="col-md-1">
+				  	<th scope="col"><label for="name">Rank #</label></th>
+				  </div>	
+				  <div class="col-md-2">
+				  	<th scope="col"><label for="color">Color</label></th>
+				  </div>
+				  <div class="col-md-2">	
+				  	<th scope="col"><label for="Name">Name</label></th>
+				  </div>
+				  <div class="col-md-2">	
+				  	<th scope="col"><label for="city">City</label></th>
+				  </div>
+				  <div class="col-md-2">	
+				  	<th scope="col"><label for="fruit">Fruit</label></th>
+				  </div>
+				  <div class="col-md-1">	
+				  	<th scope="col"><label for="score">Bonus</label></th>
+				  </div>
+				  <div class="col-md-1">	
+				  	<th scope="col"><label for="score">Score</label></th>
+				  </div>
+				</tr>
+			</div>
+		  </thead>	
+		  <tbody>
+			  <%roomusers.forEach(function(userdata){%>
+			  <div class="form-row">
+			  <tr>
+				  <div class="col-md-1">
+					  <td>
+							<p><%= userdata.name %></p>
+					  </td>
+				  </div>
+				  <div class="col-md-1">
+					  <td>
+							<p><%= userdata.position %></p>
+					  </td>
+				  </div>
+				  <div class="col-md-2"> 
+					  <td>
+						  <div class="d-inline-block">
+							<p><%= userdata.Categories.color %></p>
+						  </div>
+						  <div class="d-inline-block">
+							  <select name ="score_color" class="custom-select" required>
+							  <option value="0">0</option>
+							  <option value="3">3</option>
+							  <option value="5">5</option>
+							  <option value="10">10</option>
+						     </select> 
+						  </div>
+					  </td>  
+				  </div>
+				  <div class="col-md-2">
+					  <td>
+						  <div class="d-inline-block">
+							<p><%= userdata.Categories.Name %></p>
+						  </div>
+						  <div class="d-inline-block">
+							  <select name ="score_Name" class="custom-select" required>
+							  <option value="0">0</option>
+							  <option value="3">3</option>
+							  <option value="5">5</option>
+							  <option value="10">10</option>
+						     </select> 
+						  </div>
+					  </td>  
+				  </div>
+			      <div class="col-md-2">
+					  <td>
+						  <div class="d-inline-block">
+							<p><%= userdata.Categories.city %></p>
+						  </div>
+						  <div class="d-inline-block">
+							  <select name ="score_city" class="custom-select" required>
+							  <option value="0">0</option>
+							  <option value="3">3</option>
+							  <option value="5">5</option>
+							  <option value="10">10</option>
+						     </select> 
+						  </div>
+					  </td>  
+				  </div>
+			      <div class="col-md-2">
+					  <td>
+						  <div class="d-inline-block">
+							<p><%= userdata.Categories.fruit %></p>
+						  </div>
+						  <div class="d-inline-block">
+							  <select name ="score_fruit" class="custom-select" required>
+							  <option value="0">0</option>
+							  <option value="3">3</option>
+							  <option value="5">5</option>
+							  <option value="10">10</option>
+						     </select> 
+						  </div>
+					  </td>  
+				  </div> 
+				  <div class="col-md-1">
+					   <td>
+						   <div class="d-inline-block">
+								  <select name="score_bonus" class="custom-select" required>
+								  <option value="0">0</option>
+								  <option value="5">5</option>
+								  <option value="10">10</option>
+								 </select>  
+						  </div>
+					  </td>  
+				  </div>  
+				  <div class="col-md-1">
+					   <td>
+							  <div class="d-inline-block">
+								<a href="#" class="btn btn-dark disabled" role="button"><%=userdata.maxscore%></a>
+							  </div>
+					  </td>  
+				  </div>  
+			  </tr>
+			  </div>
+			  <%});%>
+		  </tbody>
+		</table>
+		<% if(index == 0){ %>
+			<button class="btn btn-outline-dark">Save</button>
+		<%}%>
+	</form>
+		<% if(index == 0){ %>
+		    <a class="btn btn-outline-dark mt-2" href="/room/<%= ids.roomid %>/<%=ids.userid %>/review">Refresh</a>
+		<%}else{ %>
+		 <form action="/position/<%=ids.roomid %>/<%=ids.userid %>/review" method="POST">
+			<button class="btn btn-outline-dark mt-2">Go to position </button>
+		 </form>
+		<%}%>
+	</div>
+</div>
+
+<%- include("partials/footer") %>

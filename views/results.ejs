@@ -1,0 +1,71 @@
+<%- include("partials/header") %>
+
+<div class="container mt-4 bg-light">
+	<div class="d-inline mt-4">
+			<h3 class="text-center"> Results </h3>
+	</div>
+	<div class="overflow-auto">
+		<table class="table table-striped">
+		  <thead>
+			<div class="form-row">
+				<tr>
+				   <div class="col-md-1">
+				  	<th scope="col"><label for="name">Name</label></th>
+				  </div>
+				  <div class="col-md-1">
+				  	<th scope="col"><label for="name">Rank #</label></th>
+				  </div>	
+				  <div class="col-md-2">
+				  	<th scope="col"><label for="color">Color</label></th>
+				  </div>
+				  <div class="col-md-2">	
+				  	<th scope="col"><label for="Name">Name</label></th>
+				  </div>
+				  <div class="col-md-2">	
+				  	<th scope="col"><label for="city">City</label></th>
+				  </div>
+				  <div class="col-md-2">	
+				  	<th scope="col"><label for="fruit">Fruit</label></th>
+				  </div>
+				  <div class="col-md-2">	
+				  	<th scope="col"><label for="score">Score</label></th>
+				  </div>
+				</tr>
+			</div>
+		  </thead>	  
+		  <tbody>
+			<%roomusers.forEach(function(userdata){%>
+			  <tr>
+				   <div class="col-md-1">
+					  <td><%= userdata.name %></td>
+				  </div>
+				  <div class="col-md-1">
+					  <td><%= userdata.position %></td>
+				  </div>
+				  <div class="col-md-2">
+					  <td><%= userdata.Categories.color %></td>
+				  </div> 
+				  <div class="col-md-2">
+					  <td><%= userdata.Categories.Name %></td>
+				  </div> 
+				  <div class="col-md-2">
+					  <td><%= userdata.Categories.city %></td>
+				  </div> 
+				  <div class="col-md-2">
+					  <td><%= userdata.Categories.fruit %></td>
+				  </div> 
+				  <div class="col-md-2">
+					  <td><%= userdata.maxscore %></td>
+				  </div> 
+			  </tr>
+			  <%});%>
+		  </tbody>
+		</table>
+	</div>
+	<div>	  
+	    <a class="btn btn-outline-dark" href="/room/<%=ids.roomid %>/<%=ids.userid %>/position">Go to position</a>
+		<a class="btn btn-outline-dark" href="/room/<%=ids.roomid %>/<%= ids.userid %>/results">Refresh</a>
+	</div>
+</div>
+
+<%- include("partials/footer") %>

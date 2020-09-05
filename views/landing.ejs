@@ -1,0 +1,68 @@
+<%- include("partials/header") %>
+
+<div class="container mt-4">
+	  <div class="jumbotron jumbotron-fluid">
+			<h1 id="Title" class="display-4 text-center">H<span id="Hand"><ion-icon name="hand-right"></ion-icon></span>ldHand</h1>
+			<p class="lead">The ultimate quiz game where you can play with friends and test you knowledge in different categories that start with a letter</p>
+			<hr class="my-4">
+				  <p class="d-flex justify-content-center">
+					  <a class="btn btn-outline-dark" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+						Join room
+					  </a>
+					  <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+						Create room
+					  </button>
+				  </p>
+				  <div class="collapse" id="collapseExample1">
+					  <div class="card card-body">
+						  <form action="/" method="POST">
+						 <div class="row mt-3">
+							<div class="col-md-2">
+							</div>
+							<div class="col-md-4">	
+							  <label for="username">Name</label>
+							  <input type="text" class="form-control" name="username" placeholder="Enter name" required>
+							</div>
+							<div class="col-md-4">
+							  <label for="roomnumber">Join room</label>
+							  <input type="text" class="form-control" name="roomnumber"  placeholder="Enter room #" required>
+							</div>
+							<div class="col-md-2">
+							</div>
+						  </div>
+						<div class="d-flex justify-content-center pt-4">
+							<button class="btn btn-outline-dark">Play</button>
+						</div>
+						  </form>
+					  </div>
+				  </div>
+				  <div class="collapse" id="collapseExample2">
+					  <div class="card card-body">
+						<form action="/" method="POST">
+						 <div class="row mt-3">
+							<div class="col-md-2">
+							</div>
+							<div class="col-md-4">	
+							  <label for="username">Name</label>
+							  <input type="text" class="form-control" name="username" placeholder="Enter name" required>
+							</div>
+							<div class="col-md-2">
+							</div>
+						  </div>
+						<div class="d-flex justify-content-center pt-4">
+							<button class="btn btn-outline-dark">Play</button>
+						</div>
+						  </form>
+					  </div>
+				  </div> 
+		  <p class="font-weight-bold text-center follow">Follow me </p>
+		  <div id="icons" class="d-flex justify-content-center">
+			  <a href="https://github.com/DevDavidUser" class="px-2"><ion-icon size="large" name="logo-github"></ion-icon></a>
+			  <a href="https://twitter.com/DavidJa93386000"><ion-icon size="large" name="logo-twitter"></ion-icon></a>
+			  <a href="#"><ion-icon  size="large" name="thumbs-up-outline"></ion-icon></a>
+		  </div>
+		  <p id="signature" class="text-center"> David Jaramillo</p>
+</div>
+</div>
+
+<%- include("partials/footer") %>
