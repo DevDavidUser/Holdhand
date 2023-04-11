@@ -16,8 +16,6 @@ let roomindex = functions.roomindex;
 let waitingindex = functions.waitingindex;
 // db connection
 var mongoose= require("mongoose");
-//const uri = "mongodb://localhost/db_holdhand"
-//const uri = "mongodb+srv://davidjaramillobazurto:0y5F8wP90PpkAvR9@cluster0.ipqg4jx.mongodb.net/?retryWrites=true&w=majority"
 const uri = process.env.DATABASE_URL;
 mongoose
     .connect(uri, {
