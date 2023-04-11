@@ -396,6 +396,6 @@ app.get("/room/:roomid/:id/position",function(req,res){
 		}
 	});
 });
-app.listen(3000, function() { 
+app.listen(process.env.PORT || 3000, function() { 
   console.log('Server listening on port 3000'); 
 });
